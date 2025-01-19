@@ -3,6 +3,6 @@ output "vnet_id" {
 
 }
 
-output "subnet_id" {
+output "subnets_id" {
   value = azurerm_subnet.subnets.id
 }
