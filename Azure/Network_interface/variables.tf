@@ -30,7 +30,7 @@ variable "webserver_subnet_value" {
 }
 
 # create a variable group for subnet id's
-variable "subnet_id" {
+variable "subnets_id" {
   type        = string
   description = "subnet id for network interface"
 }
