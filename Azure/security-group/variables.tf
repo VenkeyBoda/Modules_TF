@@ -33,6 +33,6 @@ variable "nsg_info" {
 variable "tags" {
   type = map(string)
   default = {
-    Env = "dev"
+    Env = "qa"
   }
 }
