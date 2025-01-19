@@ -17,3 +17,11 @@ variable "pip_address" {
       allocation_method = string 
     })
 }
+
+# create a variable group for tags
+variable "tags" {
+  type = map(string)
+  default = {
+    Env = "dev"
+  }
+}

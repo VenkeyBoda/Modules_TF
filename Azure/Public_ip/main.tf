@@ -4,4 +4,5 @@ resource "azurerm_public_ip" "base" {
   location            = var.location
   resource_group_name = var.resource_group
   allocation_method   = var.pip_address.allocation_method
+  tags =  var.tags
 }
