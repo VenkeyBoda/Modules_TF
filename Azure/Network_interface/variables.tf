@@ -22,6 +22,13 @@ variable "nic" {
   })
 }
 
+# create a variable group for webserver subnet value 
+variable "webserver_subnet_value" {
+  description = "Index of the subnet to use"
+  type        = number
+  default     = 0
+}
+
 # create a variable group for subnet id's
 variable "subnet_ids" {
   type        = string
