@@ -1,3 +1,3 @@
-output "public_ip_id" {
+output "pip_id" {
   value = azurerm_public_ip.base.id
 }
