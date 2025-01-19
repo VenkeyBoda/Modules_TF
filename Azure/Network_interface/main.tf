@@ -5,7 +5,7 @@ resource "azurerm_network_interface" "web" {
   resource_group_name = var.resource_group
   ip_configuration {
     name                          = var.nic.ip_configuration.name
-    subnet_id                     = var.subnet_ids
+    subnet_id                     = var.subnet_id
     private_ip_address_allocation = var.nic.ip_configuration.private_ip_address_allocation
     public_ip_address_id          = var.pip-id
   }
