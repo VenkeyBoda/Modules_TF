@@ -6,6 +6,8 @@
 ## Create a network security group and security group rules
    * nsg and nsg rules using security-group folder
 
-## create a public ip address
+## Create a public ip address
    * public ip address using public_ip folder
 
+## Create a network interface and network interface security group association
+   * both nic and nic sg  association using Network_interface folder 
