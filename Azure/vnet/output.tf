@@ -7,6 +7,10 @@ output "vnet_id" {
 #   value = azurerm_subnet.subnets.id
 # }
 
+# output "subnets_id" {
+#   value = [for subnet in azurerm_subnet.subnets : subnets.id]
+# }
+
 output "subnets_id" {
-  value = [for subnet in azurerm_subnet.subnets : subnet.id]
+  value = { for subnet_name, subnet in azurerm_subnet.subnets : subnet_name => subnet.id }
 }
