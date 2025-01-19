@@ -4,4 +4,8 @@
    * vnet and subnet group using vnet folder
 
 ## Create a network security group and security group rules
-   * sg and sg rules using security-group folder
+   * nsg and nsg rules using security-group folder
+
+## create a public ip address
+   * public ip address using public_ip folder
+
