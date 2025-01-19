@@ -3,6 +3,10 @@ output "vnet_id" {
 
 }
 
+# output "subnets_id" {
+#   value = azurerm_subnet.subnets.id
+# }
+
 output "subnets_id" {
-  value = azurerm_subnet.subnets.id
+  value = [for subnet in azurerm_subnet.subnets : subnet.id]
 }
