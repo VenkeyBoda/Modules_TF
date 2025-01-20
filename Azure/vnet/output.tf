@@ -12,5 +12,5 @@ output "vnet_id" {
 # }
 
 output "subnets_id" {
-  value = azurerm_subnet.subnets.id
+  value = azurerm_subnet.subnets[*].id
 }
