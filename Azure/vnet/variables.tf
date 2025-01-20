@@ -13,11 +13,10 @@ variable "location" {
 # create a variable group for virtual network  
 variable "network_info" {
   type = object({
-    address_space = optional(list(string), ["10.0.0.0/16"])
-    subnets       = map(string)
     name          = string
+    address_space = list(string)
   })
-  description = "network information"
+  description = "Information about the virtual network"
 }
 
 # create a variable group for tags

@@ -10,25 +10,14 @@ variable "location" {
   description = "location of virtual network"
 }
 
-# Create a variable group for network interface
-variable "nic" {
-  type = object({
-    name = string
-    ip_configuration = object({
-      name                          = string
-      private_ip_address_allocation = string
-
-    })
-  })
-}
-
-# create a variable group for webserver subnet value 
-variable "webserver_subnet_value" {
-  description = "Index of the subnet to use"
-  type        = number
-  default     = 0
-}
-
+# # Create a variable group for network interface
+# variable "nic" {
+#   type        = object({
+#   #  id   = string
+#     name = string
+#   })
+#   default = null
+# }
 # create a variable group for subnet id's
 variable "subnets_id" {
   type        = string
