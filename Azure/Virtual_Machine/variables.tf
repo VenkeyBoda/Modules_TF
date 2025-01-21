@@ -20,10 +20,20 @@ variable "nic_id" {
 variable "web_server_info" {
   type = object({
     name             = string
-    size             = optional(string, "Standard_B1s")
-    admin_username   = optional(string, "devops")
-    public_key_path  = optional(string, "~/.ssh/id_rsa.pub")
-    private_key_path = optional(string, "~/.ssh/id_rsa")
-
+    size             = string
+    admin_username   = string
+    public_key_path  = string
+    private_key_path = string
   })
 }
+
+# # Create a variable group for source image
+# variable "image_reference" {
+#   type = object({
+#     publisher = string
+#     offer = string
+#     sku = string
+#     version = string
+#   })
+  
+# }
