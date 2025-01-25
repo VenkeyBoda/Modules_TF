@@ -12,28 +12,70 @@ variable "location" {
 
 # Create a varible group for network_interface_ids
 variable "nic_id" {
-    type = string
-    description = "the ID of network interface"
+  type        = list(string)
+  description = "the ID of network interface"
 }
 
-# create a variable group for web server information
-variable "web_server_info" {
-  type = object({
-    name             = string
-    size             = string
-    admin_username   = string
-    public_key_path  = string
-    private_key_path = string
-  })
-}
-
-# # Create a variable group for source image
-# variable "image_reference" {
-#   type = object({
-#     publisher = string
-#     offer = string
-#     sku = string
-#     version = string
-#   })
+variable "vm_count" {
+  type = number
   
-# }
+}
+variable "virtual_machine_name" {
+  type = string
+}
+
+variable "username" {
+  type = string
+}
+
+variable "public_key_path" {
+  type = string
+  
+}
+variable "vm_size" {
+  type    = string
+  default = "Standard_B1s"
+
+}
+
+variable "web_private_key" {
+  type = string
+
+}
+
+
+variable "vm_publisher" {
+  type = string
+
+}
+
+
+variable "offer_image" {
+  type = string
+}
+
+variable "image_sku" {
+  type = string
+
+}
+
+variable "image_version" {
+  type = string
+
+}
+
+variable "build_id" {
+  type    = number
+  default = 1
+
+}
+
+variable "script" {
+  type = string
+
+}
+
+variable "vm_zones" {
+  type = list(string)
+  
+}

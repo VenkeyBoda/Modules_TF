@@ -1,6 +1,6 @@
 output "vm_id" {
-    value = azurerm_linux_virtual_machine.web.id
-  
+  value = azurerm_linux_virtual_machine.web[0].id
+
 }
 
 # ==========================
@@ -9,16 +9,27 @@ output "vm_id" {
 
 # web server URL output
 output "url" {
-  value = format("http://%s",
-  azurerm_linux_virtual_machine.web.public_ip_address)
-  description = "The public URL of the web server"
+  value = [
+    for i, ip in zipmap(range(length(azurerm_linux_virtual_machine.web)), azurerm_linux_virtual_machine.web[*].public_ip_address) :
+    format("VM%d: http://%s", i + 1, ip)
+  ]
 }
 
-# SSH Command Output
+# # SSH Command Output
 output "ssh" {
-  value = format("ssh -i %s %s@%s",
-    var.web_server_info.private_key_path,               # Path to the private key
-    var.web_server_info.admin_username,                 # Username for SSH access
-    azurerm_linux_virtual_machine.web.public_ip_address # Public IP of the web vm
-  )
+  value = [
+    for i in range(length(azurerm_linux_virtual_machine.web)) :
+    format(
+      "VM%d: ssh -i %s %s@%s",
+      i + 1,
+      var.web_private_key,
+      var.username,
+      azurerm_linux_virtual_machine.web[i].public_ip_address
+    )
+  ]
+}
+
+output "deploy_server" {
+  value = "http://${azurerm_linux_virtual_machine.web[0].public_ip_address}"
+
 }

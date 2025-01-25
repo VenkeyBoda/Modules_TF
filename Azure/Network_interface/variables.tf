@@ -10,13 +10,23 @@ variable "location" {
   description = "location of virtual network"
 }
 
-# # Create a variable group for network interface
-# variable "nic" {
-#   type        = object({
-#   #  id   = string
-#     name = string
-#   })
-#   default = null
+# create a variable group for public ip address
+variable "pip_address" {
+  type = object({
+    name              = string
+    allocation_method = string
+  })
+}
+
+
+variable "interface_name" {
+  type = string
+
+}
+
+# variable "ip_configuration_name" {
+#   type = string
+
 # }
 # create a variable group for subnet id's
 variable "subnets_id" {
@@ -24,10 +34,8 @@ variable "subnets_id" {
   description = "subnet id for network interface"
 }
 
-# create a variable group for public ip address id's
-variable "pip-id" {
-  type        = string
-  description = "public ip address id for network interface"
+variable "private_ip" {
+  type = string
 
 }
 
@@ -35,6 +43,11 @@ variable "pip-id" {
 variable "nsg-id" {
   type        = string
   description = "network security group id for newtork interface"
+
+}
+
+variable "nic_count" {
+  type = number
 
 }
 # create a variable group for tags

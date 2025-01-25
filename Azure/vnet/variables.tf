@@ -19,6 +19,15 @@ variable "network_info" {
   description = "Information about the virtual network"
 }
 
+# Create a variable group for subnets
+variable "subnets_info" {
+  type = list(object({
+    name             = string
+    address_prefixes = string
+  }))
+  description = "A list of objects containing subnet information"
+}
+
 # create a variable group for tags
 variable "tags" {
   type = map(string)
