@@ -1,16 +1,16 @@
-# create a variable group for resourse group
+# Variable for specifying the name of the Resource Group
 variable "resource_group" {
   type        = string
   description = "name of the resource group"
 }
 
-# create a variable group for location
+# Variable for specifying the location (Azure region) where resources will be created
 variable "location" {
   type        = string
   description = "location of virtual network"
 }
 
-# create a variable group for virtual network  
+# Variable for specifying details about the virtual network (VNet)
 variable "network_info" {
   type = object({
     name          = string
@@ -19,7 +19,7 @@ variable "network_info" {
   description = "Information about the virtual network"
 }
 
-# Create a variable group for subnets
+# Variable for specifying a list of subnets and their CIDR blocks within the VNet
 variable "subnets_info" {
   type = list(object({
     name             = string
@@ -28,7 +28,7 @@ variable "subnets_info" {
   description = "A list of objects containing subnet information"
 }
 
-# create a variable group for tags
+# Variable for specifying tags to categorize and manage resources
 variable "tags" {
   type = map(string)
   default = {

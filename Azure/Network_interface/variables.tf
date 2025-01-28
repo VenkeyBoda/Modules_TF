@@ -1,16 +1,16 @@
-# create a variable group for resourse group
+# Variable for Resource Group name
 variable "resource_group" {
   type        = string
-  description = "name of the resource group"
+  description = "Name of the resource group where the resources will be created"
 }
 
-# create a variable group for location
+# Variable for Location (Region) of the resources
 variable "location" {
   type        = string
-  description = "location of virtual network"
+  description = "The Azure region where resources like virtual network and VM will be deployed"
 }
 
-# create a variable group for public ip address
+# Variable for Public IP address details
 variable "pip_address" {
   type = object({
     name              = string
@@ -18,39 +18,34 @@ variable "pip_address" {
   })
 }
 
-
+# Variable for network interface name
 variable "interface_name" {
   type = string
-
 }
 
-# variable "ip_configuration_name" {
-#   type = string
-
-# }
-# create a variable group for subnet id's
+# Variable for subnet IDs (used for associating network interfaces)
 variable "subnets_id" {
   type        = string
-  description = "subnet id for network interface"
+  description = "The subnet ID for the network interfaces"
 }
 
+# Variable for Private IP address configuration
 variable "private_ip" {
   type = string
-
 }
 
-# create a variable group for network security group id's
+# Variable for Network Security Group (NSG) ID
 variable "nsg-id" {
   type        = string
-  description = "network security group id for newtork interface"
-
+  description = "The NSG ID for the network interfaces"
 }
 
+# Variable for the number of network interfaces to create
 variable "nic_count" {
   type = number
-
 }
-# create a variable group for tags
+
+# Variable for tags to be applied to resources (e.g., for categorization)
 variable "tags" {
   type = map(string)
   default = {

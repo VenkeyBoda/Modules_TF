@@ -1,4 +1,4 @@
-# Create a azure virtual network group
+# Create an Azure Virtual Network resource
 resource "azurerm_virtual_network" "base" {
   name                = var.network_info.name
   address_space       = var.network_info.address_space
@@ -7,7 +7,7 @@ resource "azurerm_virtual_network" "base" {
   tags                = var.tags
 }
 
-# Create a azure subnet group
+# Create Azure subnets within the virtual network
 resource "azurerm_subnet" "subnets" {
   count                = length(var.subnets_info)
   name                 = var.subnets_info[count.index].name
@@ -15,3 +15,4 @@ resource "azurerm_subnet" "subnets" {
   virtual_network_name = azurerm_virtual_network.base.name
   resource_group_name  = var.resource_group
 }
+

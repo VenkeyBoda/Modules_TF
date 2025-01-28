@@ -1,19 +1,21 @@
-# create a variable group for resourse group
+# Variable group for resource group
 variable "resource_group" {
   type        = string
   description = "name of the resource group"
 }
 
-# create a variable group for location
+# Variable group for location
 variable "location" {
   type        = string
   description = "location of virtual network"
 }
 
-# create a variable group for network security group
+# Variable group for network security group (NSG) information
 variable "nsg_info" {
   type = object({
     name = optional(string, "web-nsg")
+
+    # A list of security rules for the NSG
     security_rules = list(object({
       name                       = string
       priority                   = number
@@ -24,15 +26,16 @@ variable "nsg_info" {
       destination_port_range     = optional(string, "*")
       source_address_prefix      = optional(string, "*")
       destination_address_prefix = optional(string, "*")
-
     }))
   })
+  description = "Contains the configuration for the network security group and its rules"
 }
 
-# create a variable group for tags
+# Variable group for tags (used for tagging resources)
 variable "tags" {
   type = map(string)
   default = {
     Env = "qa"
   }
+  description = "A map of tags to assign to resources"
 }

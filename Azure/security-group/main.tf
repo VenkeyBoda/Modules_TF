@@ -1,12 +1,12 @@
-# create a network security group
+# Create a Network Security Group (NSG) for web servers
 resource "azurerm_network_security_group" "web" {
   resource_group_name = var.resource_group
   name                = var.nsg_info.name
   location            = var.location
   tags                = var.tags
-
 }
 
+# Create a Network Security Rule (NSG rule) based on the configuration
 resource "azurerm_network_security_rule" "rules" {
   count                       = length(var.nsg_info.security_rules)
   name                        = var.nsg_info.security_rules[count.index].name
