@@ -48,7 +48,6 @@ resource "null_resource" "webnull" {
 
   # Remote execution script to be run on the VMs (like installation scripts)
   provisioner "remote-exec" {
-    # script = var.script
-    scripts = [var.script]
+    script = var.script
   }
 }
