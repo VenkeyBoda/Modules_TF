@@ -54,17 +54,17 @@ variable "vpc_security_group_ids" {
   
 }
 
-# # Variable for build identification, useful in CI/CD pipelines or versioning
-# variable "build_id" {
-#   type = string
-#   default = "1"
+# Variable for build identification, useful in CI/CD pipelines or versioning
+variable "build_id" {
+  type = string
+  default = "1"
   
-# }
+}
 
-# # Variable for specifying a startup script to run on instance creation
-# variable "script" {
-#   type = string 
-# }
+# Variable for specifying a startup script to run on instance creation
+variable "script" {
+  type = string 
+}
 
 # Variable for specifying the number of instances to create
 variable "instance_count" {

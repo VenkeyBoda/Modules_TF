@@ -31,24 +31,24 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [var.vpc_security_group_ids]
 }
 
-# # The primary use-case for the null resource is as a do-nothing containerfor arbitrary actions taken by a provisioner
-# resource "null_resource" "web_null" {
-#   count = var.instance_count
-#   triggers = {
-#     build_id = var.build_id
-#   }
+# The primary use-case for the null resource is as a do-nothing containerfor arbitrary actions taken by a provisioner
+resource "null_resource" "web_null" {
+  count = var.instance_count
+  triggers = {
+    build_id = var.build_id
+  }
 
-# # Establishes connection to be used by all
-#   connection {
-#     type        = "ssh"
-#     user        = var.instance_username
-#     private_key = file(var.key-info.private_key_path)
-#     host        = aws_instance.web[count.index].public_ip
-#   }
-# # generic remote provisioners (i.e. file/remote-exec)
-#   provisioner "remote-exec" {
-#     script = var.script
-#   }
+# Establishes connection to be used by all
+  connection {
+    type        = "ssh"
+    user        = var.instance_username
+    private_key = file(var.key-info.private_key_path)
+    host        = aws_instance.web[count.index].public_ip
+  }
+# generic remote provisioners (i.e. file/remote-exec)
+  provisioner "remote-exec" {
+    script = var.script
+  }
 
-# }
+}
 
